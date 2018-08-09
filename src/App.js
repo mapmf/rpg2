@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Panel} from 'react-bootstrap';
+import {ListGroup, ListGroupItem} from 'react-bootstrap';
 
 class App extends Component {
 
@@ -35,8 +35,8 @@ class App extends Component {
 
   render() {
 
-    let attrsTagArray = this.state.sheet.data.attributes.map(attribute => 
-                            <li>{attribute.name} {attribute.currentLvl}</li>
+    let attrsListGrouppItems = this.state.sheet.data.attributes.map(attribute => 
+                            <ListGroupItem>{attribute.name} {attribute.currentLvl}</ListGroupItem>
                           );
 
     return (
@@ -49,14 +49,10 @@ class App extends Component {
           this is my CharacterList
         </p>
 
-        <Panel>
-          <Panel.Heading>Attributes</Panel.Heading>
-          <Panel.Body>
-            <ul>
-              {attrsTagArray}
-            </ul>
-          </Panel.Body>
-        </Panel>
+        <ListGroup>
+          {attrsListGrouppItems}
+        </ListGroup>
+
 
       </div>
     );
